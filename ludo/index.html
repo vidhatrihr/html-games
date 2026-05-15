@@ -11,70 +11,67 @@
   <body>
     <main id="app">
       <div id="board">
-        <div class="board-top">
-          <div class="base">
-            <div class="upper-position">
-              <div class="position"></div>
-              <div class="position"></div>
-            </div>
-            <div class="lower-position">
-              <div class="position"></div>
-              <div class="position"></div>
-            </div>
-          </div>
-          <div class="gallery vertical">
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-          </div>
-          <div class="base"></div>
+        <div class="base base-1">
+          <div class="pawn-stay" v-for="n in 4" :key="n"></div>
+        </div>
+        <div class="base base-2">
+          <div class="pawn-stay" v-for="n in 4" :key="n"></div>
+        </div>
+        <div class="base base-3">
+          <div class="pawn-stay" v-for="n in 4" :key="n"></div>
+        </div>
+        <div class="base base-4">
+          <div class="pawn-stay" v-for="n in 4" :key="n"></div>
         </div>
 
-        <div class="board-middle">
-          <div class="gallery">
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
+        <div class="board-home"></div>
+
+        <div class="gallery gallery-1 vertical">
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
           </div>
-          <div class="board-home"></div>
-          <div class="gallery">
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
           </div>
         </div>
-        <div class="board-bottom">
-          <div class="base"></div>
-          <div class="gallery vertical">
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
-            <div class="path">
-              <div class="cell" v-for="n in 6" :key="n"></div>
-            </div>
+
+        <div class="gallery gallery-2">
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
           </div>
-          <div class="base"></div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+        </div>
+
+        <div class="gallery gallery-3 vertical">
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+        </div>
+
+        <div class="gallery gallery-4">
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
+          <div class="path">
+            <div class="cell" v-for="n in 6" :key="n"></div>
+          </div>
         </div>
       </div>
     </main>
