@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ludo</title>
     <script src="https://unpkg.com/vue@3.5.34/dist/vue.global.js"></script>
-    <script src="main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main id="app">
       <div id="board">
-        <!-- 16 TOKENS -->
-        <div v-for="n in 16" :class="['token', `token-${n}`, getColorForToken(n)]"></div>
-
         <!-- 4 BASES -->
         <div v-for="color in colors" :class="['base', color]">
           <div class="base-inner">
@@ -21,6 +18,24 @@
           </div>
         </div>
 
+        <!-- 4 GALLERIES -->
+        <div
+          v-for="color in colors"
+          :class="['gallery', color, {vertical: shouldGalleryBeVertical(color)}]"
+        >
+          <div class="path" v-for="pathN in 3" :key="pathN">
+            <div
+              :class="['cell', {colored: shouldCellBeColored(color, pathN, cellN)} ]"
+              v-for="cellN in 6"
+              :key="cellN"
+            >
+              <span v-if="shouldCellHaveArrow(color, pathN, cellN)" class="arrow">▶</span>
+              <span v-if="shouldCellHaveStar(color, pathN, cellN)" class="star">☆</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOME -->
         <div class="home">
           <svg viewBox="0 0 100 100" class="center-triangle-svg">
             <polygon points="0,0 50,50 0,100" fill="url(#grad-red)"></polygon>
@@ -50,21 +65,8 @@
           </svg>
         </div>
 
-        <div
-          v-for="color in colors"
-          :class="['gallery', color, {vertical: shouldGalleryBeVertical(color)}]"
-        >
-          <div class="path" v-for="pathN in 3" :key="pathN">
-            <div
-              :class="['cell', {colored: shouldCellBeColored(color, pathN, cellN)} ]"
-              v-for="cellN in 6"
-              :key="cellN"
-            >
-              <span v-if="shouldCellHaveArrow(color, pathN, cellN)" class="arrow">▶</span>
-              <span v-if="shouldCellHaveStar(color, pathN, cellN)" class="star">☆</span>
-            </div>
-          </div>
-        </div>
+        <!-- 16 TOKENS -->
+        <div v-for="n in 16" :class="['token', `token-${n}`, getColorForToken(n)]"></div>
       </div>
     </main>
   </body>
